@@ -1,4 +1,12 @@
-document.getElementById("root").innerHTML = `
-  <h1>Welcome to My Vite App!</h1>
-  <p>This is powered by Vite.</p>
-  `;
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App"; // Import the App component
+import { createRoot } from "react-dom/client";
+import { StrictMode } from "react";
+import "./index.css";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
