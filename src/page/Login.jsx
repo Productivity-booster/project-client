@@ -18,15 +18,15 @@ const Login = () => {
     });
   };
 
-  useEffect(()=>{
-    const checkCookie = Cookies.get('token');
+  useEffect(() => {
+    const checkCookie = Cookies.get("token");
 
     console.log(checkCookie);
 
-    if(checkCookie && Cookies.get('token') != ""){
-        return navigate("/", {replace : true});
+    if (checkCookie && Cookies.get("token") != "") {
+      return navigate("/", { replace: true });
     }
-  },[])
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,7 +38,10 @@ const Login = () => {
 
     try {
       const response = await axiosInstance.post("/auth/login", formData);
-      if (response.data.message.includes("successful") || response.data.message.includes("Already") && response.data.token) {
+      if (
+        response.data.message.includes("successful") ||
+        (response.data.message.includes("Already") && response.data.token)
+      ) {
         setTokenCookie(response.data.token);
         return navigate("/", { replace: true }); // Redirect to main page
       } else {
@@ -87,13 +90,13 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="lowerContainer flex h-[calc(100%-5rem)] items-center justify-center">
+        <div className="lowerContainer flex h-[calc(100%-5rem)] items-center justify-center  text-[#d4aadc]">
           <div className="grid bg-[#533984]/[86%] border-[#d4aadc] border-2 rounded-lg w-[40em] m-auto p-[3em]">
             <h1 className="font-Handleson text-3xl mx-auto mb-5">Log In</h1>
 
             <form onSubmit={handleSubmit} className="w-full h-full">
               <div className="grid font-Nine mb-5">
-                <span className="label-text ml-[0.4rem] text-2xl">
+                <span className="label-text ml-[0.4rem] text-2xl  text-[#d4aadc]">
                   Username
                 </span>
                 <input
@@ -108,7 +111,7 @@ const Login = () => {
               </div>
 
               <div className="grid font-Nine">
-                <span className="label-text ml-[0.4rem] text-2xl">
+                <span className="label-text ml-[0.4rem] text-2xl  text-[#d4aadc]">
                   Password
                 </span>
                 <input
