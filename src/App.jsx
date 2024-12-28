@@ -1,13 +1,20 @@
 import React from "react";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import "./index.css";
+import Login from "./page/Login";
+import ProtectedRoute from "./component/ProtectedRoute";
+import MainPage from "./page/MainPage.jsx";
 
 const App = () => {
   return (
-    <div>
-      <h1 className="underline">Welcome to My Vite React App!</h1>
-      <p>This is powered by Vite and React.</p>
-    </div>
+    <Router>
+        <Routes>
+            <Route path="/login" element={<Login/>}/>
+
+            <Route path="/" element={ <ProtectedRoute> <MainPage/> </ProtectedRoute> }/>
+        </Routes>
+    </Router>
   );
 };
 
-export default App; // Export App for use in main.jsx
+export default App;
