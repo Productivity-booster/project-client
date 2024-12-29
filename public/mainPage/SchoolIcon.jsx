@@ -3,7 +3,7 @@ import React from "react";
 const SchoolIcon = ({ color, size, padding }) => {
   return (
     <div
-      className="mx-auto my-3"
+      className="mx-auto my-[0.75rem]"
       style={{
         display: "flex",
         alignItems: "center",
