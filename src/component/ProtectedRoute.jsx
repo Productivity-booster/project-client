@@ -25,12 +25,12 @@ const ProtectedRoute = ({ children }) => {
         if (res.data.verification === true) {
             setIsValid(true); 
         } else {
-            Cookies.remove('token');
+            Cookies.remove('token', {path : '/'});
             setIsValid(false); 
         }
       } catch (error) {
             console.error(error);
-            Cookies.remove('token');
+            Cookies.remove('token', {path : '/'});
             setIsValid(false); 
       }
     };

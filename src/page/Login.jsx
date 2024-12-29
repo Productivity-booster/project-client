@@ -15,6 +15,7 @@ const Login = () => {
       expires: 7,
       secure: true,
       sameSite: "Strict",
+      path : '/'
     });
   };
 

@@ -8,12 +8,6 @@ const MainPage = () => {
   const navigate = useNavigate();
   const bgUrl = "/MainPgImg.png";
 
-  const logout = () => {
-    Cookies.remove("token");
-    console.log("cookie removed");
-    return navigate("/", { replace: true });
-  };
-
   return (
     <div className=" h-screen overflow-hidden flex z-0">
       <div
@@ -25,7 +19,6 @@ const MainPage = () => {
           clipPath: "polygon(   0 0,       100% 0%,   75% 100%,       0% 100%)",
         }}
       >
-        sfjaeljf
       </div>
       <div
         className="absolute top-0 right-0 h-full w-[60vw]"
