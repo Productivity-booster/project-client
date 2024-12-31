@@ -1,18 +1,18 @@
 import React from "react";
 
-const CalendarIcon = ({ color , size, padding}) => {
+const CalendarIcon = ({ color, size, padding }) => {
   return (
     <div
-      className="mx-auto my-[0.75rem]"
+      className="mx-auto z-20"
       style={{
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: `${parseInt(size) + 8}px`, 
+        width: `${parseInt(size) + 8}px`,
         height: `${parseInt(size) + 8}px`,
         border: `${1}px solid ${color}`,
         borderRadius: "50%",
-        padding : padding,
+        padding: padding,
       }}
     >
       <svg

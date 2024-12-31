@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import Navbar from "../component/navbar";
+import MainContainer from "../component/LandingPage/MainContainer";
 
 const MainPage = () => {
   console.log("Rendering Protected Route");
@@ -16,10 +17,9 @@ const MainPage = () => {
           background: "radial-gradient(circle at 0% 0%, #492F79, #0E0219)",
           zIndex: 10,
           //topleft,    topright    bottomright     bottomleft      (length, height)
-          clipPath: "polygon(   0 0,       100% 0%,   75% 100%,       0% 100%)",
+          clipPath: "polygon(   0 0,       100% 0%,   70% 100%,       0% 100%)",
         }}
-      >
-      </div>
+      ></div>
       <div
         className="absolute top-0 right-0 h-full w-[60vw]"
         style={{
@@ -28,15 +28,14 @@ const MainPage = () => {
           backgroundRepeat: "no-repeat",
           zIndex: 5,
         }}
-      >
-        afljdksald
-      </div>
+      ></div>
 
       <div
         className="absolute top-0 left-0 w-full h-full z-20 flex "
         style={{ background: "transparent" }}
       >
         <Navbar />
+        <MainContainer />
       </div>
     </div>
   );

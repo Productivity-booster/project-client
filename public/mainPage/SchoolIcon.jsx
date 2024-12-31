@@ -3,7 +3,7 @@ import React from "react";
 const SchoolIcon = ({ color, size, padding }) => {
   return (
     <div
-      className="mx-auto my-[0.75rem]"
+      className="mx-auto"
       style={{
         display: "flex",
         alignItems: "center",
@@ -15,7 +15,6 @@ const SchoolIcon = ({ color, size, padding }) => {
         padding: padding,
       }}
     >
-
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
