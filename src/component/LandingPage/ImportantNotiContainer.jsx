@@ -30,11 +30,11 @@ const ImportantNotiContainer = () => {
     fetchNoti();
   }, []);
 
-  useEffect(() => {
-    console.log("Assignment List Updated:", assignmentList);
-    console.log("Event List Updated:", eventList);
-    console.log("Exam List Updated:", examList);
-  }, [assignmentList, eventList, examList]);
+  // useEffect(() => {
+  //   console.log("Assignment List Updated:", assignmentList);
+  //   console.log("Event List Updated:", eventList);
+  //   console.log("Exam List Updated:", examList);
+  // }, [assignmentList, eventList, examList]);
 
   return (
     <div className="relative w-full h-full flex">
@@ -45,22 +45,22 @@ const ImportantNotiContainer = () => {
           </span>
         </h1>
 
-        <div className="main-container w-[88%] m-auto h-[93%] my-[5%]">
-          <div className="exam-group w-full h-[33%] overflow-hidden">
-            <h1 className="text-[#cbc5f2] font-bold mx-[4%] text-lg">
+        <div className="relative main-container w-[88%] m-auto h-[93%] my-[5%] ">
+        <h1 className="text-[#cbc5f2] font-bold mx-[4%] text-lg">
               · Exams
             </h1>
-            <div className="w-full h-full overflow-y-scroll">
-              {examList.map((exam, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-400 w-full h-[50px] rounded-lg p-2 mb-2"
-                >
-                  <h1>{exam.exam_name}</h1>
-                  <span>{exam.exam_date}</span>
-                </div>
-              ))}
-            </div>
+            <div className="relative w-full h-[250px] overflow-hidden">
+              <div className=" w-full h-full overflow-auto">
+                {examList.map((exam, index) => (
+                  <div
+                    key={index}
+                    className="relative bg-gray-400 w-full h-10 rounded-lg p-2 mb-2"
+                  >
+                    <h1>{exam.exam_name}</h1>
+                    <span>{exam.exam_date}</span>
+                  </div>
+                ))}
+              </div>
           </div>
 
           <div className="assignment-group w-full h-[33%]">

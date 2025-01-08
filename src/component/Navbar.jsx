@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
+import axiosInstance from "../axiosInstance.js";
 import Logo from "/Logo.png";
 import CalendarIcon from "../../public/mainPage/CalendarIcon.jsx";
 import ExpenseIcon from "../../public/mainPage/ExpenseIcon.jsx";
@@ -13,24 +14,19 @@ import LogOutIcon from "../../public/mainPage/LogOutIcon.jsx";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [token, setToken] = useState(Cookies.get("token") || "");
   const [svgColor, svgSize] = ["#d4baff", 32];
 
-  // Whenever the token state changes, you can do something, like navigate or reload.
-  useEffect(() => {
-    if (!token) {
-      // If token is empty (after logout), redirect to the home page
-      window.location.reload();
+
+  const logout = async() => {
+    try {
+      const res = await axiosInstance.get('/auth/logout', { withCredentials: true }); 
+      
+      setTimeout(() => {
+        navigate("/login", { replace: true });
+      }, 100);
+    } catch (error) {
+      console.error("Error logging out :", error)
     }
-  }, [token, navigate]);
-
-  const logout = () => {
-    // Remove the cookie
-    Cookies.remove("token", { path: "/" });
-    console.log("Token after removal:", Cookies.get("token")); // Should be undefined
-
-    // Update the state to trigger useEffect
-    setToken(""); // This will trigger the redirect in the useEffect
   };
 
   return (

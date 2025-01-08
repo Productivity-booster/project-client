@@ -1,50 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import axiosInstance from "../axiosInstance.js";
 
 const ProtectedRoute = ({ children }) => {
-  const [isValid, setIsValid] = useState(null);
-  const token = Cookies.get("token");  // Token is fetched here
+  const [isValid, setIsValid] = useState(null); 
 
-  // UseEffect to verify token when component mounts
   useEffect(() => {
-    // if (!token || token === "") {
-    //     if(token === ""){
-    //         Cookies.remove('token');
-    //     }
-    //   setIsValid(false);
-    //   return; 
-    // }
 
-
-    // Function to verify token with the server
     const verifyToken = async () => {
       try {
-        const res = await axiosInstance.get('/auth/verify');
+        const res = await axiosInstance.get('/auth/checkToken', { withCredentials: true }); 
         if (res.data.verification === true) {
-            setIsValid(true); 
+          setIsValid(true); 
         } else {
-            Cookies.remove('token', {path : '/'});
-            setIsValid(false); 
+          setIsValid(false); 
         }
       } catch (error) {
-            console.error(error);
-            Cookies.remove('token', {path : '/'});
-            setIsValid(false); 
+        console.error("Error verifying token:", error);
+        setIsValid(false); 
       }
     };
 
-    verifyToken();
+    verifyToken(); 
+  }, []); 
 
-  }, [token]); 
+  if (isValid === null) return <div>Loading...</div>; 
 
-  if (isValid === null) return <div>Loading...</div>;
+  if (isValid === false) return <Navigate to="/login" replace />; 
 
-  if (isValid === false) return <Navigate to="/login" replace />;
-
-  // If token is valid, render the children components
-  return children;
+  return children; 
 };
 
 export default ProtectedRoute;

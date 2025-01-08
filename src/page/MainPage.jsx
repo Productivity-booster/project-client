@@ -1,12 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import Navbar from "../component/navbar";
 import MainContainer from "../component/LandingPage/MainContainer";
 
 const MainPage = () => {
   console.log("Rendering Protected Route");
-  const navigate = useNavigate();
   const bgUrl = "/MainPgImg.png";
 
   return (

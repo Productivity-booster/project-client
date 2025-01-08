@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Logo from "/Logo.png";
 import axiosInstance from "../axiosInstance";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const Login = () => {
   const bg = "./auth/authBg.png";
@@ -10,54 +9,49 @@ const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [errorMessage, setErrorMessage] = useState("");
 
-  const setTokenCookie = (token) => {
-    Cookies.set("token", token, {
-      expires: 7,
-      secure: true,
-      sameSite: "Strict",
-      path : '/'
-    });
-  };
+  // useEffect(() => {
 
-  useEffect(() => {
-    const checkCookie = Cookies.get("token");
+  //   const verifyToken = async () => {
+  //     try {
+  //       const res = await axiosInstance.get('/auth/checkToken', { withCredentials: true }); 
+  //       if (res.data.verification === true) {
+  //         setTimeout(() => {
+  //           navigate("/", { replace: true });
+  //         }, 100);
+  //       } 
+  //     } catch (error) {
+  //       console.error("Error verifying token:", error); 
+  //     }
+  //   };
 
-    console.log(checkCookie);
-
-    if (checkCookie && Cookies.get("token") != "") {
-      return navigate("/", { replace: true });
-    }
-  }, []);
+  //   verifyToken(); 
+  // }, []); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axiosInstance.post("/auth/login", formData);
-      if (
-        response.data.message.includes("successful") ||
-        (response.data.message.includes("Already") && response.data.token)
-      ) {
-        setTokenCookie(response.data.token);
-        return navigate("/", { replace: true }); // Redirect to main page
-      } else {
-        setErrorMessage(response.data.message);
-        console.log(Cookies.get("token")); // Before removal
-        console.log("cookie remove");
-        Cookies.remove("token");
-        console.log(Cookies.get("token"));
-      }
+        const response = await axiosInstance.post("/auth/login", formData);
+
+        if (response?.data?.token) {
+            return navigate('/', { replace: true });
+        } else {
+            setErrorMessage(response?.data?.message || "Login failed. Please try again.");
+        }
     } catch (error) {
-      console.error("Error during login: ", error.response || error);
-      setErrorMessage("An error occurred during login. Please try again.");
-      Cookies.remove("token");
+        console.error("Error during login: ", error.response?.data || error.message || error);
+        setErrorMessage(
+            error.response?.data?.message || "An error occurred during login. Please try again."
+        );
     }
-  };
+};
+
 
   return (
     <div
