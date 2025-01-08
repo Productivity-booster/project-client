@@ -3,29 +3,30 @@ import Cookies from "js-cookie";
 import { replace, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance.js";
 import Logo from "/Logo.png";
-import CalendarIcon from "../../public/mainPage/CalendarIcon.jsx";
-import ExpenseIcon from "../../public/mainPage/ExpenseIcon.jsx";
-import SchoolIcon from "../../public/mainPage/SchoolIcon.jsx";
-import ChoresIcon from "../../public/mainPage/ChoresIcon.jsx";
-import NotesIcon from "../../public/mainPage/NotesIcon.jsx";
-import HomeIcon from "../../public/mainPage/HomeIcon.jsx";
-import ProfileIcon from "../../public/mainPage/ProfileIcon.jsx";
-import LogOutIcon from "../../public/mainPage/LogOutIcon.jsx";
+import CalendarIcon from "../assets/landingPage/CalendarIcon.jsx";
+import ExpenseIcon from "../assets/landingPage/ExpenseIcon.jsx";
+import SchoolIcon from "../assets/landingPage/SchoolIcon.jsx";
+import ChoresIcon from "../assets/landingPage/ChoresIcon.jsx";
+import NotesIcon from "../assets/landingPage/NotesIcon.jsx";
+import HomeIcon from "../assets/landingPage/HomeIcon.jsx";
+import ProfileIcon from "../assets/landingPage/ProfileIcon.jsx";
+import LogOutIcon from "../assets/landingPage/LogOutIcon.jsx";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [svgColor, svgSize] = ["#d4baff", 32];
 
-
-  const logout = async() => {
+  const logout = async () => {
     try {
-      const res = await axiosInstance.get('/auth/logout', { withCredentials: true }); 
-      
+      const res = await axiosInstance.get("/auth/logout", {
+        withCredentials: true,
+      });
+
       setTimeout(() => {
         navigate("/login", { replace: true });
       }, 100);
     } catch (error) {
-      console.error("Error logging out :", error)
+      console.error("Error logging out :", error);
     }
   };
 

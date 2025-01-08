@@ -2,17 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "HandlesonFive";
+  src: url("/fonts/handelsonfive_cyr_five.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
-    font-family: 'HandlesonFive';
-    src: url('/fonts/handelsonfive_cyr_five.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: "NineByFive";
+  src: url("/fonts/NineByFiveNbp.ttf") format("truetype");
+  font-weight: normal;
+  font-size: normal;
+}
 
 @font-face {
-  font-family: 'NineByFive';
-  src: url('/fonts/NineByFiveNbp.ttf') format('truetype');
+  font-family: "SevenExtraTight";
+  src: url("/fonts/SevenExtraTight.ttf") format("truetype");
   font-weight: normal;
   font-size: normal;
 }

@@ -1,8 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+import MorningEveningIcon from "../../assets/landingPage/clock_svg/MorningEveningIcon";
+import AfternoonIcon from "../../assets/landingPage/clock_svg/AfternoonIcon";
+import NightIcon from "../../assets/landingPage/clock_svg/NightIcon";
+
 const DigitalClock = () => {
   const [time, setTime] = useState(new Date()); //re-render base on change
+  const [width, height] = [72, 72];
 
   useEffect(() => {
     //condition base rendering (dependency array based)
@@ -14,15 +19,31 @@ const DigitalClock = () => {
   }, []);
 
   return (
-    <div className="w-full h-full">
-      <div className="SVG w-1/3"></div>
-      <div className="time w-2/3 text-white">
-        {time.toLocaleTimeString("en-EN", {
-          timeZone: "Asia/Bangkok",
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: true,
-        })}
+    <div
+      className="w-full h-full rounded-xl flex "
+      style={{ background: "linear-gradient(to bottom, #3e2a64, #4a3474)" }}
+    >
+      <div className="w-[88%] flex h-max m-auto">
+        <div className=" w-1/3 h-max">
+          {(time && time.getHours() >= 5 && time.getHours() <= 9) ||
+          (time && time.getHours() >= 18 && time.getHours() <= 21) ? (
+            <MorningEveningIcon width={width} height={height} />
+          ) : time.getHours() >= 9 && time.getHours() <= 17 ? (
+            <AfternoonIcon width={width} height={height} />
+          ) : (
+            <NightIcon width={width} height={height} />
+          )}
+        </div>
+        <div className="time w-max h-max text-[#cbc5f2] mt-1 mx-auto text-end text-6xl font-SevenExtraTight">
+          {time
+            .toLocaleTimeString("it-IT", {
+              timeZone: "Asia/Bangkok",
+              hour: "numeric",
+              minute: "2-digit",
+              hour12: true,
+            })
+            .replace(/( AM| PM)/, "")}
+        </div>
       </div>
     </div>
   );
