@@ -3,6 +3,8 @@ import WelcomeContainer from "./WelcomeContainer";
 import DigitalClock from "./DigitalClock";
 import ImportantNotiContainer from "./ImportantNotiContainer";
 import WeatherWidget from "./WeatherWidget";
+import ExpenseTracker from "./ExpenseTracker";
+import TasksOverview from "./TaksOverview";
 
 const MainContainer = () => {
   const length = 100;
@@ -22,8 +24,12 @@ const MainContainer = () => {
           <ImportantNotiContainer />
         </div>
         <div className="col-span-5 row-span-7 bg-gray-400"></div>
-        <div className="col-span-5 row-span-5 bg-gray-400 row-start-6 col-start-6"></div>
-        <div className="col-span-10 row-span-7 bg-gray-400 "></div>
+        <div className="col-span-5 row-span-5 row-start-6 col-start-6">
+          <TasksOverview />
+        </div>
+        <div className="col-span-10 row-span-7">
+          <ExpenseTracker />
+        </div>
       </div>
     </div>
   );
