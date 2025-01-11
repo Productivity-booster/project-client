@@ -7,7 +7,7 @@ import NightIcon from "../../assets/landingPage/clock_svg/NightIcon";
 
 const DigitalClock = () => {
   const [time, setTime] = useState(new Date()); //re-render base on change
-  const [width, height] = [72, 72];
+  const [width, height] = [57, 57];
 
   useEffect(() => {
     //condition base rendering (dependency array based)
@@ -24,9 +24,9 @@ const DigitalClock = () => {
       style={{ background: "linear-gradient(to bottom, #3e2a64, #4a3474)" }}
     >
       <div className="w-[88%] flex h-max m-auto">
-        <div className=" w-1/3 h-max">
+        <div className="w-max h-max ml-auto">
           {(time && time.getHours() >= 5 && time.getHours() <= 9) ||
-          (time && time.getHours() >= 18 && time.getHours() <= 21) ? (
+          (time.getHours() >= 18 && time.getHours() <= 21) ? (
             <MorningEveningIcon width={width} height={height} />
           ) : time.getHours() >= 9 && time.getHours() <= 17 ? (
             <AfternoonIcon width={width} height={height} />
@@ -34,7 +34,7 @@ const DigitalClock = () => {
             <NightIcon width={width} height={height} />
           )}
         </div>
-        <div className="time w-max h-max text-[#cbc5f2] mt-1 mx-auto text-end text-6xl font-SevenExtraTight">
+        <div className="time w-max h-max text-[#cbc5f2] ml-4 mr-auto text-end text-6xl font-SevenExtraTight">
           {time
             .toLocaleTimeString("it-IT", {
               timeZone: "Asia/Bangkok",

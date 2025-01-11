@@ -1,15 +1,16 @@
 import React from "react";
 
-const SnowyIcon = () => (
+const SnowyIcon = ({ width, height }) => (
   <svg
     version="1.1"
     id="Uploaded_to_svgrepo_com"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    width="800px"
-    height="800px"
+    width={width}
+    height={height}
     viewBox="0 0 32 32"
     xmlSpace="preserve"
+    className="m-auto flex"
   >
     <style>
       {`.duotone_twee { fill: #555D5E; }

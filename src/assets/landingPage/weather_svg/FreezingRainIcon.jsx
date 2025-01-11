@@ -1,12 +1,13 @@
 import React from "react";
 
-const FreezingRainIcon = () => (
+const FreezingRainIcon = ({ width, height }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="-20 0 190 190"
-    width="800"
-    height="800"
+    width={width}
+    height={height}
     fill="none"
+    className="m-auto flex"
   >
     <path
       fillRule="evenodd"

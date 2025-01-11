@@ -1,12 +1,13 @@
 import React from "react";
 
-const SunnyIcon = () => (
+const SunnyIcon = ({ width, height }) => (
   <svg
-    width="800px"
-    height="800px"
+    width={width}
+    height={height}
     viewBox="0 0 48 48"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="m-auto flex"
   >
     <path
       d="M25.25 5.25C25.25 4.55964 24.6904 4 24 4C23.3096 4 22.75 4.55964 22.75 5.25V6.75C22.75 7.44036 23.3096 8 24 8C24.6904 8 25.25 7.44036 25.25 6.75V5.25Z"

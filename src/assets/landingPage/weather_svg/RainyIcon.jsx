@@ -1,14 +1,15 @@
 import React from "react";
 
-const RainyIcon = () => (
+const RainyIcon = ({ width, height }) => (
   <svg
-    width="800px"
-    height="800px"
+    width={width}
+    height={height}
     viewBox="0 0 24 24"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     fill="none"
+    className="m-auto flex"
   >
     <title>/svg/ic-rain</title>
     <desc>Created with Sketch.</desc>
