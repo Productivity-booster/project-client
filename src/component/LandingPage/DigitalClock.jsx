@@ -20,11 +20,11 @@ const DigitalClock = () => {
 
   return (
     <div
-      className="w-full h-full rounded-xl flex "
+      className="w-[75%] h-full rounded-lg flex mt-[6%] ml-auto mr-[4%]"
       style={{ background: "linear-gradient(to bottom, #3e2a64, #4a3474)" }}
     >
-      <div className="w-[88%] flex h-max m-auto">
-        <div className="w-max h-max ml-auto">
+      <div className="w-[82%] flex h-max m-auto">
+        <div className="w-max h-max">
           {(time && time.getHours() >= 5 && time.getHours() <= 9) ||
           (time.getHours() >= 18 && time.getHours() <= 21) ? (
             <MorningEveningIcon width={width} height={height} />

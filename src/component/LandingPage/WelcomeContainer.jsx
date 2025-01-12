@@ -8,7 +8,7 @@ const WelcomeContainer = () => {
         <img src={Breakline} className="w-[85%] mx-auto my-2 h-5" alt="" />
         <div className="flex w-[80%] -m-2 mx-[10%]">
           <span className="w-1/2 h-max ">what a lonely morning</span>
-          <span className="w-1/2 h-max text-end">Name</span>
+          <span className="w-1/2 h-max text-end">Min Paing Hein</span>
         </div>
       </div>
     </div>

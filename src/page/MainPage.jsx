@@ -12,7 +12,7 @@ const MainPage = () => {
       <div
         className="absolute top-0 left-0 h-full w-[65vw]"
         style={{
-          background: "radial-gradient(circle at 0% 0%, #492F79, #0E0219)",
+          background: "radial-gradient(circle at -50% 70%, #492F79, #0E0219)",
           zIndex: 10,
           //topleft,    topright    bottomright     bottomleft      (length, height)
           clipPath: "polygon(   0 0,       100% 0%,   70% 100%,       0% 100%)",

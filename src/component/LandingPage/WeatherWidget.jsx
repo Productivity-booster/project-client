@@ -49,7 +49,7 @@ const WeatherWidget = () => {
 
   return (
     <div
-      className="w-full h-full rounded-xl  flex"
+      className="w-[75%] mx-auto h-full rounded-lg mt-[6%] ml-auto mr-[4%] flex"
       style={{
         background: "linear-gradient(-45deg, #492f79, #1e0634, #1b0332)",
       }}
